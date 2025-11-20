@@ -990,7 +990,7 @@
       observer.observe(section);
     });
 
-    // Fluid gradient + ripple effect in hero
+    // Fluid gradient + subtle ripple effect in hero
     const heroShell = document.querySelector(".hero-shell");
     const canvas = document.getElementById("heroCanvas");
     if (!heroShell || !canvas) return;
@@ -1020,26 +1020,27 @@
 
     function initBlobs() {
       blobs.length = 0;
+      const baseR = Math.max(width, height);
       blobs.push(
         {
-          baseX: width * 0.2,
+          baseX: width * 0.25,
           baseY: height * 0.3,
-          radius: Math.max(width, height) * 0.5,
-          speed: 0.12,
+          radius: baseR * 0.35,
+          speed: 0.10,
           offset: 0
         },
         {
           baseX: width * 0.8,
           baseY: height * 0.4,
-          radius: Math.max(width, height) * 0.45,
-          speed: 0.18,
+          radius: baseR * 0.32,
+          speed: 0.16,
           offset: 2
         },
         {
           baseX: width * 0.5,
-          baseY: height * 0.9,
-          radius: Math.max(width, height) * 0.6,
-          speed: 0.1,
+          baseY: height * 0.95,
+          radius: baseR * 0.4,
+          speed: 0.09,
           offset: 4
         }
       );
@@ -1047,19 +1048,19 @@
 
     function addRipple(x, y) {
       const now = performance.now();
-      if (now - lastRippleTime < 40) return; // throttle biar gak kebanyakan
+      if (now - lastRippleTime < 120) return; // lebih jarang
       lastRippleTime = now;
 
       ripples.push({
         x,
         y,
         radius: 0,
-        maxRadius: Math.max(width, height) * 0.35,
-        alpha: 0.8
+        maxRadius: Math.max(width, height) * 0.22,
+        alpha: 0.35
       });
 
-      if (ripples.length > 40) {
-        ripples.splice(0, ripples.length - 40);
+      if (ripples.length > 20) {
+        ripples.splice(0, ripples.length - 20);
       }
     }
 
@@ -1082,15 +1083,15 @@
 
       ctx.clearRect(0, 0, width, height);
 
-      // Base background
+      // Base background (mostly black)
       ctx.fillStyle = "#020617";
       ctx.fillRect(0, 0, width, height);
 
-      // Moving orange blobs (flow effect)
+      // Moving orange blobs (subtle flow)
       blobs.forEach((blob, index) => {
         const t = timestamp / 1000;
-        const wobbleX = Math.sin(t * blob.speed + blob.offset) * (blob.radius * 0.12);
-        const wobbleY = Math.cos(t * blob.speed * 0.8 + blob.offset) * (blob.radius * 0.12);
+        const wobbleX = Math.sin(t * blob.speed + blob.offset) * (blob.radius * 0.10);
+        const wobbleY = Math.cos(t * blob.speed * 0.8 + blob.offset) * (blob.radius * 0.10);
 
         const x = blob.baseX + wobbleX;
         const y = blob.baseY + wobbleY;
@@ -1099,13 +1100,13 @@
         const grad = ctx.createRadialGradient(x, y, 0, x, y, r);
         const colorCore =
           index === 0
-            ? "rgba(252, 159, 21, 0.9)"
+            ? "rgba(252, 159, 21, 0.55)"
             : index === 1
-            ? "rgba(232, 119, 21, 0.85)"
-            : "rgba(252, 159, 21, 0.65)";
+            ? "rgba(232, 119, 21, 0.45)"
+            : "rgba(252, 159, 21, 0.35)";
 
         grad.addColorStop(0, colorCore);
-        grad.addColorStop(0.4, "rgba(252, 159, 21, 0.35)");
+        grad.addColorStop(0.4, "rgba(252, 159, 21, 0.18)");
         grad.addColorStop(1, "rgba(0, 0, 0, 0)");
 
         ctx.fillStyle = grad;
@@ -1114,12 +1115,12 @@
         ctx.fill();
       });
 
-      // Ripples (mouse drops)
+      // Ripples (mouse drops, very soft)
       for (let i = ripples.length - 1; i >= 0; i--) {
         const ripple = ripples[i];
-        const grow = ripple.maxRadius * 0.018;
+        const grow = ripple.maxRadius * 0.012;
         ripple.radius += grow * (dt * 60);
-        ripple.alpha -= 0.04 * (dt * 60);
+        ripple.alpha -= 0.06 * (dt * 60);
 
         if (ripple.radius >= ripple.maxRadius || ripple.alpha <= 0) {
           ripples.splice(i, 1);
@@ -1129,12 +1130,12 @@
         const grad = ctx.createRadialGradient(
           ripple.x,
           ripple.y,
-          ripple.radius * 0.1,
+          ripple.radius * 0.15,
           ripple.x,
           ripple.y,
           ripple.radius
         );
-        grad.addColorStop(0, `rgba(255, 255, 255, ${ripple.alpha})`);
+        grad.addColorStop(0, `rgba(255, 255, 255, ${ripple.alpha * 0.7})`);
         grad.addColorStop(0.35, `rgba(252, 159, 21, ${ripple.alpha * 0.9})`);
         grad.addColorStop(1, "rgba(0, 0, 0, 0)");
 
