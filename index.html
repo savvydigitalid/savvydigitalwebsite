@@ -6,19 +6,17 @@
   <title>Savvy Digital – Creator-led Digital Marketing Agency</title>
   <style>
     :root {
+      --orange-bright: #FC9F15;
+      --orange-deep: #E87715;
+      --black: #000000;
       --bg: #ffffff;
       --bg-soft: #fff7ec;
       --bg-card: #ffffff;
-      --orange-bright: #FC9F15;
-      --orange-gold: #FC9F15;
-      --orange-deep: #E87715;
-      --black: #000000;
       --text-main: #111827;
       --text-muted: #6b7280;
       --border-soft: #e5e7eb;
       --radius-lg: 22px;
       --radius-md: 14px;
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
     }
 
     * {
@@ -33,10 +31,7 @@
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text-main);
-      background:
-        radial-gradient(circle at 0% 0%, rgba(252, 159, 21, 0.06), transparent 55%),
-        var(--bg);
-      min-height: 100vh;
+      background: var(--bg);
     }
 
     a {
@@ -56,8 +51,8 @@
       top: 0;
       z-index: 50;
       backdrop-filter: blur(18px);
-      background: rgba(255, 255, 255, 0.9);
-      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.9);
     }
 
     .nav-inner {
@@ -85,8 +80,7 @@
       width: 28px;
       height: 28px;
       border-radius: 8px;
-      background:
-        linear-gradient(135deg, var(--orange-bright), var(--orange-deep));
+      background: linear-gradient(135deg, var(--orange-bright), var(--orange-deep));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -160,7 +154,7 @@
       box-shadow: 0 12px 28px rgba(15, 23, 42, 0.16);
     }
 
-    /* SECTIONS */
+    /* GENERIC SECTIONS */
 
     section {
       margin-top: 72px;
@@ -187,7 +181,11 @@
       line-height: 1.7;
     }
 
-    /* HERO – DARK GRADIENT + S ACCENT */
+    /* HERO – DARK GRADIENT + SAVVY ORANGE */
+
+    .hero-wrapper {
+      margin-top: 40px;
+    }
 
     .hero {
       display: grid;
@@ -195,19 +193,18 @@
       gap: 34px;
       align-items: center;
       padding: 40px;
-      margin-top: 40px;
       border-radius: 32px;
       position: relative;
       overflow: hidden;
       background:
-        radial-gradient(circle at 0% 0%, rgba(252, 159, 21, 0.28), transparent 55%),
-        radial-gradient(circle at 100% 0%, rgba(232, 119, 21, 0.2), transparent 55%),
-        radial-gradient(circle at 50% 120%, rgba(0, 0, 0, 0.9), #000000);
+        radial-gradient(circle at 0% 0%, rgba(252, 159, 21, 0.32), transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(232, 119, 21, 0.24), transparent 55%),
+        radial-gradient(circle at 50% 120%, rgba(0, 0, 0, 0.92), #000000);
       color: #f9fafb;
       box-shadow: 0 28px 70px rgba(0, 0, 0, 0.55);
     }
 
-    /* pseudo “S” orange accent */
+    /* pseudo “S” wave */
     .hero::before {
       content: "";
       position: absolute;
@@ -286,15 +283,13 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      box-shadow:
-        0 16px 35px rgba(251, 146, 60, 0.7);
+      box-shadow: 0 16px 35px rgba(251, 146, 60, 0.7);
       transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow:
-        0 20px 45px rgba(251, 146, 60, 0.9);
+      box-shadow: 0 20px 45px rgba(251, 146, 60, 0.9);
     }
 
     .btn-secondary {
@@ -369,4 +364,669 @@
       border-radius: 20px;
       background: rgba(15, 23, 42, 0.95);
       padding: 18px;
-      box-shadow: 0 24px 60px rgba(0, 0,
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(249, 250, 251, 0.16);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-photo {
+      border-radius: 16px;
+      background: #111827;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9ca3af;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .hero-badge {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.88);
+      color: #f9fafb;
+      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(249, 250, 251, 0.18);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    /* GRIDS & CARDS */
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 26px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 26px;
+    }
+
+    .card {
+      padding: 18px 18px 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-soft);
+      background: var(--bg-card);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.04);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 15px;
+      letter-spacing: -0.02em;
+      color: var(--black);
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.14);
+      border-color: rgba(252, 159, 21, 0.7);
+      background: #fffdf8;
+    }
+
+    /* CASE STUDIES */
+
+    .case-meta {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .case-result {
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--black);
+    }
+
+    .case-link {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--orange-deep);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .case-link span {
+      font-size: 14px;
+    }
+
+    /* STATS */
+
+    .numbers-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 22px;
+    }
+
+    .number-box {
+      min-width: 160px;
+      padding: 14px 14px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-soft);
+      background: #fffaf2;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+    }
+
+    .number-box h3 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: -0.04em;
+      color: var(--black);
+    }
+
+    .number-box p {
+      margin: 4px 0 0;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .stat-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .logos-strip {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px dashed rgba(209, 213, 219, 0.9);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .logos-strip span {
+      font-weight: 500;
+      color: var(--black);
+    }
+
+    /* STUDIO */
+
+    .studio-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-top: 6px;
+    }
+
+    /* CTA */
+
+    .cta-section {
+      margin-top: 70px;
+      padding: 26px 24px;
+      border-radius: var(--radius-lg);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(252, 159, 21, 0.22), transparent 60%),
+        #000000;
+      color: #f9fafb;
+      border: 1px solid rgba(209, 213, 219, 0.4);
+      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.6);
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.1fr);
+      gap: 24px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::after {
+      content: "NEW MISSION";
+      position: absolute;
+      top: 12px;
+      right: -40px;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(249, 250, 251, 0.18);
+      transform: rotate(24deg);
+    }
+
+    .cta-section h2 {
+      font-size: 24px;
+      margin-bottom: 6px;
+      color: #f9fafb;
+    }
+
+    .cta-section p {
+      font-size: 13px;
+      color: #e5e7eb;
+      max-width: 420px;
+      margin: 0 0 14px;
+    }
+
+    .cta-section small {
+      display: block;
+      margin-top: 6px;
+      font-size: 11px;
+      color: #d1d5db;
+    }
+
+    .cta-right {
+      text-align: right;
+    }
+
+    .cta-stat {
+      font-size: 11px;
+      color: #e5e7eb;
+      margin-bottom: 8px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid #e5e7eb;
+      padding: 20px;
+      margin-top: 55px;
+      font-size: 11px;
+      color: var(--text-muted);
+      background: #f9fafb;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .footer-company {
+      font-weight: 500;
+      color: var(--black);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+    }
+
+    /* SIMPLE SCROLL ANIM */
+
+    .fade-section {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-section.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .cta-section {
+        grid-template-columns: minmax(0, 1fr);
+        text-align: left;
+      }
+
+      .cta-right {
+        text-align: left;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .nav-inner {
+        justify-content: space-between;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        padding: 0 16px 60px;
+      }
+
+      section {
+        margin-top: 52px;
+      }
+
+      .hero {
+        padding: 28px 22px;
+      }
+
+      .hero-title {
+        font-size: 30px;
+      }
+
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .numbers-row {
+        flex-direction: column;
+      }
+
+      .cta-section {
+        padding: 22px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="logo">
+      <div class="logo-mark">S</div>
+      <div>Savvy Digital</div>
+    </div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#case-studies">Case Studies</a>
+      <a href="#studio">Studio</a>
+      <a href="#contact">Contact</a>
+      <a href="mailto:info@savvydigital.id" class="nav-chip">
+        <div class="nav-chip-dot"></div>
+        <span>Talk with our team</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+
+  <!-- HERO -->
+  <div class="hero-wrapper fade-section">
+    <section class="hero">
+      <div>
+        <div class="section-label">Creator-led digital agency</div>
+        <h1 class="hero-title">
+          Creator-led digital marketing for modern brands.
+        </h1>
+        <p class="hero-sub">
+          Savvy Digital helps brands grow through influencer marketing, TikTok affiliate operations,
+          social media management, performance marketing, and content production.
+        </p>
+
+        <div class="hero-tags">
+          <div class="pill">Influencer marketing</div>
+          <div class="pill">TikTok affiliate & MCN</div>
+          <div class="pill">Social media & performance</div>
+        </div>
+
+        <div class="hero-cta-row">
+          <a class="btn-primary" href="mailto:info@savvydigital.id">
+            Email our team
+          </a>
+          <a class="btn-secondary" href="#case-studies">
+            View case studies
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          Trusted by <span>Miniso, Cimory, Spotify, TikTok, Shopee, Grab</span> and more.
+        </div>
+
+        <div class="hero-xp">
+          Campaign XP • Level 10 agency
+          <div class="xp-bar">
+            <div class="xp-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-media">
+        <div class="hero-card">
+          <div class="hero-photo">
+            TEAM PHOTO / OFFICE SHOT<br />
+            (replace with your image)
+          </div>
+          <div class="hero-badge">
+            <div class="hero-badge-dot"></div>
+            <span>957+ campaigns • 10B+ views</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services" class="fade-section">
+    <div class="section-label">Services</div>
+    <h2>Integrated services across creators, content, and performance.</h2>
+    <p style="font-size:13px;color:var(--text-muted);max-width:520px;margin-top:8px;">
+      We partner with brands to run end-to-end campaigns and operations that combine
+      creators, media, and content production.
+    </p>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3>Influencer Marketing</h3>
+        <p>
+          End-to-end KOL campaigns: creator scouting, negotiation, briefing, content review,
+          and performance reporting across Indonesia.
+        </p>
+      </div>
+      <div class="card">
+        <h3>TikTok Affiliate Partner & MCN</h3>
+        <p>
+          Creator recruitment, activation, and daily management to scale live shopping and affiliate performance.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Social Media Management</h3>
+        <p>
+          Content strategy, posting schedules, creative direction, and community management tailored to your brand.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Performance Marketing</h3>
+        <p>
+          Meta, TikTok, and Google campaigns aligned with your funnel, from awareness to conversions.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Content Studio & Production</h3>
+        <p>
+          Short-form content, UGC content, podcast production, and social-first brand assets.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section id="case-studies" class="fade-section">
+    <div class="section-label">Selected campaigns</div>
+    <h2>Campaigns with measurable impact.</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="case-meta">Cimory • Influencer marketing • 2023</div>
+        <h3>Scaling nationwide KOL campaigns for new flavors.</h3>
+        <p>
+          Cimory wanted to work regularly with creators across Indonesia to promote new product flavors.
+          Savvy Digital provided a scouting list of rising and high-engagement KOLs from multiple regions and
+          managed ongoing collaborations.
+        </p>
+        <div class="case-result">
+          Result: <strong>215M+ views</strong> delivered nationwide.
+        </div>
+        <a href="#contact" class="case-link">
+          See how we can do this for your brand <span>→</span>
+        </a>
+      </div>
+
+      <div class="card">
+        <div class="case-meta">Miniso / Shopee / Others</div>
+        <h3>Multi-creator campaigns across retail and e-commerce brands.</h3>
+        <p>
+          From product launches to seasonal moments, we help brands design and execute campaigns that combine
+          influencers, paid media, and content production, tailored to each platform.
+        </p>
+        <div class="case-result">
+          Ask us for specific case studies relevant to your category.
+        </div>
+        <a href="mailto:info@savvydigital.id" class="case-link">
+          Request full case study deck <span>→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY SAVVY -->
+  <section class="fade-section">
+    <div class="section-label">Why Savvy</div>
+    <h2>Built around creators, run with a performance mindset.</h2>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3>Creator-first approach</h3>
+        <p>
+          We understand how creators work – not just media buying – and design campaigns that feel native to their audience.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Execution with ownership</h3>
+        <p>
+          A lean, hands-on team that treats your brand like our own, from briefing details to reporting and learnings.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Performance mindset</h3>
+        <p>
+          Every initiative is tied to clear goals – reach, engagement, traffic, or sales – and reported transparently.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Strong creator network</h3>
+        <p>
+          2,465+ creators and KOLs across categories, platforms, and regions in Indonesia.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMBERS -->
+  <section class="fade-section">
+    <div class="section-label">Agency stats</div>
+    <h2>Numbers that tell part of the story.</h2>
+
+    <div class="numbers-row">
+      <div class="number-box">
+        <div class="stat-label">Total campaigns</div>
+        <h3>957+</h3>
+        <p>Campaigns executed across industries.</p>
+      </div>
+      <div class="number-box">
+        <div class="stat-label">Creator network</div>
+        <h3>2,465+</h3>
+        <p>Creators & KOLs we've collaborated with.</p>
+      </div>
+      <div class="number-box">
+        <div class="stat-label">Cumulative views</div>
+        <h3>10B+</h3>
+        <p>Total views delivered with our partners.</p>
+      </div>
+    </div>
+
+    <div class="logos-strip">
+      <span>Brands we've worked with:</span>
+      &nbsp;Miniso, Makarizo, Cimory, Spotify, TikTok, Shopee, Grab, Gojek, Disney+ Hotstar,
+      Mattel, Emina, Scarlett, Skintific, Kanzler.
+    </div>
+  </section>
+
+  <!-- STUDIO -->
+  <section id="studio" class="fade-section">
+    <div class="section-label">Studio</div>
+    <h2>Content studio & podcast production in West Jakarta.</h2>
+    <p class="studio-note">
+      A physical space and production team to help you create content faster – from UGC to full shows.
+    </p>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3>Podcast-ready studio</h3>
+        <p>
+          Fully equipped audio and video setup, ideal for podcasts, talk shows, and recurring branded content.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Social-first production</h3>
+        <p>
+          Vertical short-form videos, UGC-style content, and creator-led formats optimized for TikTok, Reels, and Shorts.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Kebon Jeruk location</h3>
+        <p>
+          Studio Podcast by Savvy Digital is located in West Jakarta with easy access for creators and brands.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section fade-section" id="contact">
+    <div>
+      <div class="section-label" style="color:#facc6b;">New mission</div>
+      <h2>Let’s grow your brand with creators and performance.</h2>
+      <p>
+        Share your brief, idea, or challenge, and our team will get back with a proposal or a
+        simple starting point for your next campaign.
+      </p>
+      <small>Prefer a call? Include your WhatsApp number in the email and we’ll follow up.</small>
+    </div>
+    <div class="cta-right">
+      <div class="cta-stat">
+        Queue status: <strong>Accepting new campaigns</strong>
+      </div>
+      <a class="btn-primary" href="mailto:info@savvydigital.id">
+        Email our team
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-company">Savvy Digital – PT Sarana Visi Internasional</div>
+      <div>Influencer marketing & creator-focused digital agency based in Jakarta, Indonesia.</div>
+    </div>
+    <div class="footer-links">
+      <span>© 2025 Savvy Digital</span>
+      <a href="mailto:info@savvydigital.id">info@savvydigital.id</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    document.querySelectorAll(".fade-section").forEach((section) => {
+      observer.observe(section);
+    });
+  });
+</script>
+
+</body>
+</html>
