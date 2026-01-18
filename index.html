@@ -1,269 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Savvy Digital – Creator-led Digital Marketing Agency</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savvy Digital | Influencer Marketing Partner</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <!-- CSS utama -->
-  <link rel="stylesheet" href="css/main.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                    },
+                    colors: {
+                        savvy: {
+                            black: '#000000',
+                            gold: '#FC9F15',  // Orange Emas
+                            dark: '#E87715',  // Orange Gelap
+                            light: '#FCAB2B', // Variasi terang dikit
+                        }
+                    },
+                    backgroundImage: {
+                        'savvy-gradient': 'linear-gradient(135deg, #FC9F15 0%, #E87715 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Utilities for Aesthetic Feel */
+        body { background-color: #000000; color: white; }
+        .text-gradient {
+            background: linear-gradient(to right, #FC9F15, #E87715);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bento-card {
+            background: rgba(20, 20, 20, 0.6);
+            border: 1px solid rgba(252, 159, 21, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+        }
+        .bento-card:hover {
+            border-color: #FC9F15;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px -10px rgba(252, 159, 21, 0.2);
+        }
+        /* Golden Ratio Spacing */
+        .section-gap { padding-top: 10vh; padding-bottom: 10vh; }
+    </style>
 </head>
-<body>
+<body class="overflow-x-hidden antialiased">
 
-<header>
-  <div class="nav-inner">
-    <div class="logo">
-      <div class="logo-mark">S</div>
-      <div>Savvy Digital</div>
-    </div>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#brands">Brands</a>
-      <a href="#case">Case Study</a>
-      <a href="#studio">Studio</a>
-      <a href="#contact">Contact</a>
-      <a href="mailto:info@savvydigital.id" class="nav-chip">
-        <div class="nav-chip-dot"></div>
-        <span>Talk with our team</span>
-      </a>
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 p-6" id="navbar">
+        <div class="max-w-7xl mx-auto flex justify-between items-center backdrop-blur-md bg-black/50 border border-white/10 rounded-full px-8 py-4">
+            <div class="text-2xl font-black tracking-tighter text-white">
+                SAVVY<span class="text-savvy-gold">DIGITAL</span>
+            </div>
+            <div class="hidden md:flex gap-8 text-sm font-bold uppercase tracking-widest text-gray-400">
+                <a href="#about" class="hover:text-savvy-gold transition">About</a>
+                <a href="#services" class="hover:text-savvy-gold transition">Services</a>
+                <a href="#contact" class="hover:text-savvy-gold transition">Contact</a>
+            </div>
+            <a href="#contact" class="bg-savvy-gradient text-black font-bold px-6 py-2 rounded-full hover:scale-105 transition shadow-[0_0_20px_rgba(252,159,21,0.4)]">
+                Partner With Us
+            </a>
+        </div>
     </nav>
-  </div>
-</header>
 
-<!-- HERO FULLSCREEN -->
-<div class="hero-shell">
-  <!-- VIDEO BACKGROUND -->
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="assets/videos/hero-bg1.mp4" type="video/mp4" />
-  </video>
-  <div class="hero-overlay"></div>
+    <section class="h-screen flex flex-col justify-center items-center text-center relative overflow-hidden px-4">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-savvy-gold/20 rounded-full blur-[120px] -z-10"></div>
 
-  <!-- HERO CONTENT -->
-  <section class="hero fade-section">
-    <div>
-      <div class="section-label">Creator-led digital agency</div>
-      <h1 class="hero-title">
-        Creator-led digital marketing<br />for modern brands.
-      </h1>
-      <p class="hero-sub">
-        Savvy Digital helps brands grow through influencer marketing, TikTok affiliate operations,
-        social media management, performance marketing, and content production.
-      </p>
-
-      <div class="hero-tags">
-        <div class="pill">Influencer marketing</div>
-        <div class="pill">TikTok affiliate & MCN</div>
-        <div class="pill">Social & performance</div>
-      </div>
-
-      <div class="hero-cta-row">
-        <a class="btn-primary" href="mailto:info@savvydigital.id">
-          Email our team
-        </a>
-        <a class="btn-secondary" href="#case">
-          View case studies
-        </a>
-      </div>
-
-      <div class="hero-meta">
-        Trusted by <span>Miniso, Cimory, Spotify, TikTok, Shopee, Grab</span> and more.
-      </div>
-
-      <div class="hero-xp">
-        Campaign XP • Level 10 agency
-        <div class="xp-bar">
-          <div class="xp-fill"></div>
+        <div data-aos="fade-up" data-aos-duration="1000">
+            <span class="border border-white/20 px-4 py-2 rounded-full text-xs font-bold tracking-[0.2em] text-savvy-gold uppercase mb-6 inline-block">
+                Since 2026
+            </span>
+            <h1 class="text-5xl md:text-8xl font-black leading-tight mb-6">
+                DOMINATE <br>
+                <span class="text-gradient">THE ALGORITHM.</span>
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
+                We bridge the gap between viral creators and top-tier brands. 
+                TikTok Affiliate Partner that drives real sales, not just views.
+            </p>
+            <div class="flex gap-4 justify-center">
+                <button class="bg-white text-black font-bold px-8 py-4 rounded-full hover:bg-gray-200 transition">
+                    I'm a Brand
+                </button>
+                <button class="border border-white/30 text-white font-bold px-8 py-4 rounded-full hover:bg-white/10 transition">
+                    I'm a Creator
+                </button>
+            </div>
         </div>
-      </div>
-    </div>
+    </section>
 
-    <div class="hero-media">
-      <div class="hero-card">
-        <div class="hero-photo">
-          TEAM PHOTO / OFFICE SHOT<br />
-          (replace with your image)
+    <div class="w-full bg-savvy-gold py-4 overflow-hidden -rotate-1 relative z-10">
+        <div class="whitespace-nowrap animate-marquee font-black text-black text-xl tracking-widest uppercase">
+            TIKTOK AFFILIATE PARTNER • LIVE SHOPPING EXPERTS • CONTENT STRATEGY • SAVVY DIGITAL • SCALE YOUR GMV • 
+            TIKTOK AFFILIATE PARTNER • LIVE SHOPPING EXPERTS • CONTENT STRATEGY • SAVVY DIGITAL • SCALE YOUR GMV •
         </div>
-        <div class="hero-badge">
-          <div class="hero-badge-dot"></div>
-          <span>957+ campaigns • 10B+ views</span>
+    </div>
+
+    <section id="about" class="section-gap px-4 max-w-7xl mx-auto">
+        <div class="mb-16" data-aos="fade-right">
+            <h2 class="text-4xl font-bold mb-2">The Savvy Effect</h2>
+            <div class="w-20 h-2 bg-savvy-gradient rounded-full"></div>
         </div>
-      </div>
-    </div>
-  </section>
-</div>
 
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+            
+            <div class="bento-card md:col-span-2 rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                <div class="absolute top-0 right-0 p-32 bg-savvy-gold/10 blur-3xl rounded-full"></div>
+                <h3 class="text-gray-400 uppercase tracking-widest font-bold">Total GMV Generated</h3>
+                <div class="text-7xl md:text-8xl font-black text-white">
+                    12.5M+
+                </div>
+                <p class="text-savvy-gold font-bold">IDR Revenue for Clients</p>
+            </div>
 
-<main>
+            <div class="bento-card rounded-3xl p-4 relative overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop" 
+                     class="w-full h-full object-cover rounded-2xl grayscale group-hover:grayscale-0 transition duration-500" alt="TikTok Live">
+                <div class="absolute bottom-6 left-6 bg-black/80 px-4 py-2 rounded-lg text-sm font-bold">Live Shopping</div>
+            </div>
 
-  <!-- WHAT WE DO -->
-  <section id="services" class="section fade-section">
-    <div class="section-label">What we do</div>
-    <h2>Integrated services built around creators.</h2>
-    <p class="section-intro">
-      We combine creator relationships, content, and performance media into one partner for your brand.
-    </p>
+            <div class="bento-card row-span-2 rounded-3xl p-8 bg-neutral-900 border-none" data-aos="fade-up" data-aos-delay="300">
+                 <h3 class="text-2xl font-bold mb-6">Why Us?</h3>
+                 <ul class="space-y-6 text-gray-300">
+                    <li class="flex items-start gap-3">
+                        <span class="text-savvy-gold text-xl">01.</span>
+                        <p><strong>Data-Driven.</strong> We don't guess. We analyze trends to maximize ROAS.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-savvy-gold text-xl">02.</span>
+                        <p><strong>Curated Talents.</strong> Access to 500+ Savvy creators ready to sell.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-savvy-gold text-xl">03.</span>
+                        <p><strong>End-to-End.</strong> From strategy, live streaming, to monthly reporting.</p>
+                    </li>
+                 </ul>
+            </div>
 
-    <div class="services-grid">
-      <div>
-        <div class="service-item-title">Influencer Marketing</div>
-        <p class="service-item-desc">
-          Strategy, scouting, negotiation, briefing, and reporting for KOL campaigns across Indonesia.
-        </p>
-      </div>
-      <div>
-        <div class="service-item-title">TikTok Affiliate Partner & MCN</div>
-        <p class="service-item-desc">
-          Recruiting and managing creators to scale affiliate and live shopping performance.
-        </p>
-      </div>
-      <div>
-        <div class="service-item-title">Social Media Management</div>
-        <p class="service-item-desc">
-          Day-to-day content planning, posting, and creative direction across key platforms.
-        </p>
-      </div>
-      <div>
-        <div class="service-item-title">Performance Marketing</div>
-        <p class="service-item-desc">
-          Meta, TikTok, and Google ads aligned with your funnel, from awareness to conversions.
-        </p>
-      </div>
-      <div>
-        <div class="service-item-title">Content Studio & Production</div>
-        <p class="service-item-desc">
-          Short-form content, UGC, and podcast production tailored for social platforms.
-        </p>
-      </div>
-    </div>
-  </section>
+            <div class="bento-card md:col-span-2 rounded-3xl p-8 flex items-center justify-between" data-aos="fade-up" data-aos-delay="400">
+                <div>
+                    <h3 class="text-gray-400 uppercase tracking-widest font-bold text-sm">Monthly Views</h3>
+                    <div class="text-5xl font-black text-white mt-2">850K+</div>
+                </div>
+                <div class="flex items-end gap-2 h-16">
+                    <div class="w-4 h-8 bg-gray-800 rounded-t"></div>
+                    <div class="w-4 h-12 bg-gray-700 rounded-t"></div>
+                    <div class="w-4 h-10 bg-gray-700 rounded-t"></div>
+                    <div class="w-4 h-full bg-savvy-gradient rounded-t shadow-[0_0_15px_#FC9F15]"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- BRANDS -->
-  <section id="brands" class="section fade-section">
-    <div class="section-label">Brands</div>
-    <h2>Brands we’ve partnered with.</h2>
-    <p class="section-intro">
-      From consumer brands to platforms and marketplaces.
-    </p>
+    <footer id="contact" class="bg-neutral-900 border-t border-white/10 py-16 px-4 mt-20">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">Ready to be <span class="text-savvy-gold">Savvy?</span></h2>
+            <p class="text-gray-400 mb-8 max-w-lg mx-auto">Let's discuss how we can scale your brand on TikTok.</p>
+            <a href="mailto:hello@savvydigital.id" class="text-2xl font-bold hover:text-savvy-gold transition underline decoration-savvy-gold decoration-2 underline-offset-8">
+                hello@savvydigital.id
+            </a>
+            <div class="mt-16 text-xs text-gray-600 uppercase tracking-widest">
+                © 2026 Savvy Digital. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
 
-    <div class="brands-strip">
-      <span>Selected brands:</span>
-      &nbsp;Miniso, Makarizo, Cimory, Spotify, TikTok, Shopee, Grab, Gojek, Disney+ Hotstar,
-      Mattel, Emina, Scarlett, Skintific, Kanzler.
-    </div>
-  </section>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init Animation
+        AOS.init({
+            once: true, // animasi cuma jalan sekali pas scroll ke bawah
+            offset: 100,
+        });
 
-  <!-- CASE STUDY -->
-  <section id="case" class="section fade-section">
-    <div class="section-label">Case study</div>
-    <h2>Scaling nationwide KOL campaigns for Cimory.</h2>
-
-    <div class="case-layout">
-      <div>
-        <div class="case-meta">Cimory • Influencer marketing • 2023</div>
-        <h3 class="case-title">New flavor launch with creators across Indonesia.</h3>
-        <p class="case-text">
-          Cimory wanted to work regularly with creators across Indonesia to promote new product flavors.
-          Savvy Digital provided a scouting list of rising and high-engagement KOLs from multiple regions
-          and managed ongoing collaborations from brief to reporting.
-        </p>
-        <p class="case-result">
-          Result: <strong>215M+ views</strong> delivered nationwide.
-        </p>
-        <a href="mailto:info@savvydigital.id" class="case-link">
-          Request full case study deck <span>→</span>
-        </a>
-      </div>
-      <div class="case-visual">
-        CASE STUDY VISUAL / THUMBNAIL<br />
-        (replace with image)
-      </div>
-    </div>
-  </section>
-
-  <!-- NUMBERS -->
-  <section class="section fade-section">
-    <div class="section-label">Numbers</div>
-    <h2>Some numbers behind the work.</h2>
-
-    <div class="numbers-row">
-      <div class="number-item">
-        <div class="number-label">Total campaigns</div>
-        <div class="number-value">957+</div>
-        <div class="number-caption">Campaigns executed across industries.</div>
-      </div>
-      <div class="number-item">
-        <div class="number-label">Creator network</div>
-        <div class="number-value">2,465+</div>
-        <div class="number-caption">Creators & KOLs we’ve collaborated with.</div>
-      </div>
-      <div class="number-item">
-        <div class="number-label">Cumulative views</div>
-        <div class="number-value">10B+</div>
-        <div class="number-caption">Total views delivered with our partners.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STUDIO -->
-  <section id="studio" class="section fade-section">
-    <div class="section-label">Studio</div>
-    <h2>Content studio & podcast production in West Jakarta.</h2>
-    <p class="studio-note">
-      A physical space and production team to help you create content faster – from UGC to full shows.
-    </p>
-
-    <div class="studio-points">
-      <div>
-        <span>Podcast-ready studio</span><br />
-        Fully equipped audio and video setup for podcasts, talk shows, and recurring branded content.
-      </div>
-      <div>
-        <span>Social-first production</span><br />
-        Vertical content and UGC formats optimized for TikTok, Reels, and YouTube Shorts.
-      </div>
-      <div>
-        <span>Kebon Jeruk location</span><br />
-        Studio Podcast by Savvy Digital is located in West Jakarta with easy access for creators and brands.
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-section fade-section" id="contact">
-    <div>
-      <div class="section-label" style="color:#facc6b;">New mission</div>
-      <h2>Let’s grow your brand with creators and performance.</h2>
-      <p>
-        Share your brief, idea, or challenge, and our team will get back with a proposal or a
-        simple starting point for your next campaign.
-      </p>
-      <small>Prefer a call? Include your WhatsApp number in the email and we’ll follow up.</small>
-    </div>
-    <div class="cta-right">
-      <div class="cta-stat">
-        Queue status: <strong>Accepting new campaigns</strong>
-      </div>
-      <a class="btn-primary" href="mailto:info@savvydigital.id">
-        Email our team
-      </a>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-company">Savvy Digital – PT Sarana Visi Internasional</div>
-      <div>Influencer marketing & creator-focused digital agency based in Jakarta, Indonesia.</div>
-    </div>
-    <div class="footer-links">
-      <span>© 2025 Savvy Digital</span>
-      <a href="mailto:info@savvydigital.id">info@savvydigital.id</a>
-    </div>
-  </div>
-</footer>
-
-<!-- JS: animasi scroll -->
-<script src="js/scroll-anim.js" defer></script>
-
+        // Marquee Animation CSS Injection
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes marquee {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+            .animate-marquee {
+                display: inline-block;
+                animation: marquee 20s linear infinite;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
