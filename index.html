@@ -61,7 +61,6 @@
             overflow: hidden;
         }
         
-        /* Hover effect Views Box */
         .hover-card:hover {
             border-color: rgba(252, 159, 21, 0.5);
             transform: translateY(-5px);
@@ -69,7 +68,6 @@
             cursor: pointer;
         }
         
-        /* Logo Animation Floating */
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
@@ -81,7 +79,7 @@
         .brand-logo img {
             filter: grayscale(100%) brightness(1.2) opacity(0.7);
             transition: all 0.3s ease;
-            max-height: 140px; /* DIBESARIN JADI 140px BIAR NAMPOL */
+            max-height: 140px; 
             width: auto;
             object-fit: contain;
         }
@@ -90,7 +88,6 @@
             transform: scale(1.1);
         }
 
-        /* GOLDEN AURORA ANIMATION BACKGROUND */
         .aurora-container {
             position: absolute;
             inset: 0;
@@ -107,7 +104,6 @@
         .blob-2 { top: 40%; right: 30%; width: 300px; height: 300px; background: #E87715; animation-delay: 2s; }
         .blob-3 { bottom: 20%; left: 50%; width: 350px; height: 350px; background: #FC9F15; animation-delay: 4s; opacity: 0.2; }
 
-        /* Slideshow Transition */
         .slide-image {
             transition: opacity 1s ease-in-out;
         }
@@ -200,7 +196,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(180px,auto)]">
-
                 <a href="https://vt.tiktok.com/ZSHosDRvVjJNp-0lbRn/" target="_blank" class="bento-card hover-card md:col-span-2 rounded-[2rem] p-8 flex flex-col justify-between relative group" data-aos="fade-up">
                     <div class="absolute right-0 top-0 p-32 bg-savvy-gold/10 blur-[80px] rounded-full transition group-hover:bg-savvy-gold/20"></div>
                     <div class="absolute top-8 right-8 text-white/20 group-hover:text-savvy-gold transition">
@@ -300,22 +295,32 @@
             </a>
         </div>
 
-        <div class="border-t border-white/5 bg-black py-8">
-            <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4">
-                <div class="w-24 opacity-80">
-                    <img src="assets/logo/savvy-logo-white.png" alt="Savvy Digital" class="w-full h-auto">
-                </div>
+        <div class="border-t border-white/5 bg-black py-12">
+            <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-start gap-8">
+                
+                <div class="flex flex-col gap-6 text-left max-w-sm">
+                    <div class="w-24 opacity-80">
+                        <img src="assets/logo/savvy-logo-white.png" alt="Savvy Digital" class="w-full h-auto">
+                    </div>
+                    
+                    <div class="text-gray-400 text-sm leading-relaxed space-y-1">
+                        <p class="font-bold text-white">PT Sarana Visi Internasional</p>
+                        <p>Gedung Artha Graha, 26 Floor (SCBD)</p>
+                        <p>Jl. Jend. Sudirman No. 52-53</p>
+                        <p>Jakarta Selatan, DKI Jakarta 12190</p>
+                    </div>
 
-                <div class="text-gray-500 text-xs font-bold tracking-widest uppercase text-center md:text-left">
-                    © 2026 Savvy Digital. All Rights Reserved.
+                    <div class="text-gray-600 text-xs font-bold tracking-widest uppercase">
+                        © 2026 Savvy Digital. All Rights Reserved.
+                    </div>
                 </div>
                 
-                <div class="flex gap-6">
+                <div class="flex gap-6 mt-4 md:mt-0">
                     <a href="https://www.instagram.com/savvydigital.id/" target="_blank" class="text-gray-500 hover:text-savvy-gold transition transform hover:scale-110">
-                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                        <i data-lucide="instagram" class="w-6 h-6"></i>
                     </a>
                     <a href="https://www.linkedin.com/company/79110341" target="_blank" class="text-gray-500 hover:text-savvy-gold transition transform hover:scale-110">
-                        <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        <i data-lucide="linkedin" class="w-6 h-6"></i>
                     </a>
                 </div>
             </div>
@@ -327,7 +332,6 @@
         AOS.init({ once: true, offset: 50, duration: 800 });
         lucide.createIcons();
 
-        // Count Up
         function animateValue(obj, start, end, duration) {
             let startTimestamp = null;
             const step = (timestamp) => {
@@ -355,12 +359,11 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.1 }); // FIX MOBILE: threshold diturunin jadi 0.1
 
         const sectionBento = document.querySelector('.grid-cols-1'); 
         if(sectionBento) observer.observe(sectionBento);
 
-        // Slideshow
         const talentImages = [
             "assets/talent1.jpg",
             "assets/talent2.jpg",
