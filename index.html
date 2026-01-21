@@ -77,12 +77,13 @@
         }
         .logo-float { animation: float 6s ease-in-out infinite; }
         
-        /* Client Logo Styling */
+        /* Client Logo Styling - UPDATED SIZE */
         .brand-logo img {
-            filter: grayscale(100%) brightness(1.2) opacity(0.6);
+            filter: grayscale(100%) brightness(1.2) opacity(0.7);
             transition: all 0.3s ease;
-            max-height: 40px; /* Menjaga ukuran logo konsisten */
+            max-height: 80px; /* DIBESARIN DARI 40px JADI 80px */
             width: auto;
+            object-fit: contain;
         }
         .brand-logo:hover img {
             filter: grayscale(0%) brightness(1) opacity(1);
@@ -163,17 +164,17 @@
     </section>
 
     <section class="py-24 border-y border-white/5 bg-neutral-950/80 relative backdrop-blur-sm">
-        <div class="max-w-5xl mx-auto px-4 text-center">
-            <p class="text-xs font-bold tracking-[0.3em] text-gray-500 mb-14 uppercase">Trusted Partners & Platforms</p>
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-xs font-bold tracking-[0.3em] text-gray-500 mb-16 uppercase">Trusted by Partners & Platform</p>
             
-            <div class="flex flex-col gap-12 items-center">
-                <div class="flex flex-wrap justify-center gap-12 md:gap-20 items-center">
+            <div class="flex flex-col gap-16 items-center">
+                <div class="flex flex-wrap justify-center gap-16 md:gap-24 items-center">
                     <div class="brand-logo logo-float"><img src="assets/logo/cimory.png" alt="Cimory"></div>
                     <div class="brand-logo logo-float" style="animation-delay: 1s;"><img src="assets/logo/gemini.png" alt="Gemini"></div>
                     <div class="brand-logo logo-float" style="animation-delay: 2s;"><img src="assets/logo/gojek.png" alt="Gojek"></div>
                     <div class="brand-logo logo-float" style="animation-delay: 0.5s;"><img src="assets/logo/livin.png" alt="Livin"></div>
                 </div>
-                <div class="flex flex-wrap justify-center gap-12 md:gap-20 items-center">
+                <div class="flex flex-wrap justify-center gap-16 md:gap-24 items-center">
                     <div class="brand-logo logo-float" style="animation-delay: 1.5s;"><img src="assets/logo/miniso.png" alt="Miniso"></div>
                     <div class="brand-logo logo-float" style="animation-delay: 2.5s;"><img src="assets/logo/oraimo.png" alt="Oraimo"></div>
                     <div class="brand-logo logo-float" style="animation-delay: 0.8s;"><img src="assets/logo/samsung.png" alt="Samsung"></div>
@@ -319,13 +320,10 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // 1. Init AOS
         AOS.init({ once: true, offset: 50, duration: 800 });
-
-        // 2. Init Icons
         lucide.createIcons();
 
-        // 3. Count Up Animation
+        // Count Up
         function animateValue(obj, start, end, duration) {
             let startTimestamp = null;
             const step = (timestamp) => {
@@ -358,7 +356,7 @@
         const sectionBento = document.querySelector('.grid-cols-1'); 
         if(sectionBento) observer.observe(sectionBento);
 
-        // 4. TALENT SLIDESHOW (Auto Cycle 4 Images)
+        // Slideshow
         const talentImages = [
             "assets/talent1.jpg",
             "assets/talent2.jpg",
@@ -378,11 +376,9 @@
             }, 1000);
         }
         
-        // Cek dulu apakah gambar ada biar ga error
         if(talentImages.length > 0) {
             setInterval(changeSlide, 4000);
         }
-
     </script>
 </body>
 </html>
